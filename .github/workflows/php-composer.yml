@@ -14,9 +14,6 @@ jobs:
       contents: write
       
     runs-on: ubuntu-latest
-    defaults:
-       run:
-         working-directory: ./
     steps:
       - uses: actions/checkout@v3
         with:
@@ -38,9 +35,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          mkdir -p generate-vendor/vendor
+          ls -v
           composer install --prefer-dist --no-progress
-        working-directory: ./
              
       - uses: codeeshop-oc/php-cs-fix-merge@1.0.1
         with:
