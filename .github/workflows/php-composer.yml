@@ -37,7 +37,9 @@ jobs:
             ${{ runner.os }}-php-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
+        run: |
+          mkdir -p generate-vendor/vendor
+          composer install --prefer-dist --no-progress
         working-directory: ./
              
       - uses: codeeshop-oc/php-cs-fix-merge@1.0.1
